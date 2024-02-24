@@ -1,6 +1,5 @@
 package com.jalaramcwa.collection;
 
-import java.lang.reflect.Field;
 import java.util.*;
 
 public class ListOfInterface {
@@ -19,6 +18,12 @@ public class ListOfInterface {
         list.add(1);
 
         list.add(5,7);
+
+        System.out.println(list);
+
+        List<Integer> list1 = Collections.unmodifiableList(list);
+        list1.set(2,3);
+        System.out.println(list1);
 
         //System.out.println(list);
         //Collections.sort(list);

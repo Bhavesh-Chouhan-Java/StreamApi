@@ -11,9 +11,8 @@ public class Test {
         //b.m1(); //compile time error
 
 
-        P p = new C();
-        //p.c2(); //compile time error
-
+        C p = new C();
+        p.c2(); //compile time error
 
         X a = new X();
         a.m1(null);

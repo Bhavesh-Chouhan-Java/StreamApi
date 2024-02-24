@@ -1,22 +1,66 @@
 package com.jalaramcwa;
 
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class ABCProgram {
+
     public static void main(String[] args) {
-        String str = "thisismyfirstjavainterview";
 
-        Map<Character, Long> collect = str.chars().mapToObj(i -> (char) i)
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        List<Exception> list = Arrays.asList(new Exception(1),new Exception(2),new Exception(3));
 
-        collect.forEach((a,b)-> System.out.print(a+":"+b+",   "));
+        List<History> listHistory = Arrays.asList(new History(1,1),
+                new History(2,2),new History(3,1),new History(4,1));
 
-        Map.Entry<Character, Long> characterLongEntry = collect.entrySet().stream().max(Map.Entry.comparingByValue()).get();
-        System.out.println( "\n1st Max "+  characterLongEntry.getKey()+" = "+ characterLongEntry.getValue());
-        Map.Entry<Character, Long> characterLongEntry1 = collect.entrySet().stream().filter(i -> i.getValue() != characterLongEntry.getValue()).max(Map.Entry.comparingByValue()).get();
-        System.out.println( "2nd Max "+  characterLongEntry1.getKey()+" = "+ characterLongEntry1.getValue());
+        listHistory
+                .stream()
+                .filter(id -> list.stream().anyMatch(b -> b.getId() == id.getId()))
+                .map(History::getVersion)
+                .max(Integer::compareTo).ifPresent(System.out::println);
+    }
 
+    static class Exception{
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public Exception(int id) {
+            this.id = id;
+        }
+
+        private int id;
+    }
+
+    static  class History{
+
+
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public int getVersion() {
+            return version;
+        }
+
+        public void setVersion(int version) {
+            this.version = version;
+        }
+
+        public History(int id, int version) {
+            this.id = id;
+            this.version = version;
+        }
+
+        private int id;
+        private int version;
     }
 }

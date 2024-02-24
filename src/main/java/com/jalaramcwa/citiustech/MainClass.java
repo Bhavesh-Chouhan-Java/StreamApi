@@ -7,8 +7,8 @@ public class MainClass {
     }
 
 
-    /*void method(int[] a)
+    /*void method(int[] a) //compile time error
     {
         System.out.println(2);
-    }  */ //compile time error
+    }  */
 }

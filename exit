@@ -1,0 +1,561 @@
+[1mdiff --git a/src/main/java/com/jalaramcwa/ABCProgram.java b/src/main/java/com/jalaramcwa/ABCProgram.java[m
+[1mindex eb1408f..d38fc38 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/ABCProgram.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/ABCProgram.java[m
+[36m@@ -1,22 +1,66 @@[m
+ package com.jalaramcwa;[m
+ [m
+ import java.util.*;[m
+[31m-import java.util.function.Function;[m
+[31m-import java.util.stream.Collectors;[m
+ [m
+ public class ABCProgram {[m
+[32m+[m
+     public static void main(String[] args) {[m
+[31m-        String str = "thisismyfirstjavainterview";[m
+ [m
+[31m-        Map<Character, Long> collect = str.chars().mapToObj(i -> (char) i)[m
+[31m-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));[m
+[32m+[m[32m        List<Exception> list = Arrays.asList(new Exception(1),new Exception(2),new Exception(3));[m
+[32m+[m
+[32m+[m[32m        List<History> listHistory = Arrays.asList(new History(1,1),[m
+[32m+[m[32m                new History(2,2),new History(3,1),new History(4,1));[m
+[32m+[m
+[32m+[m[32m        listHistory[m
+[32m+[m[32m                .stream()[m
+[32m+[m[32m                .filter(id -> list.stream().anyMatch(b -> b.getId() == id.getId()))[m
+[32m+[m[32m                .map(History::getVersion)[m
+[32m+[m[32m                .max(Integer::compareTo).ifPresent(System.out::println);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    static class Exception{[m
+[32m+[m
+[32m+[m[32m        public int getId() {[m
+[32m+[m[32m            return id;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        public void setId(int id) {[m
+[32m+[m[32m            this.id = id;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        public Exception(int id) {[m
+[32m+[m[32m            this.id = id;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private int id;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    static  class History{[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32m        public int getId() {[m
+[32m+[m[32m            return id;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        public void setId(int id) {[m
+[32m+[m[32m            this.id = id;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        public int getVersion() {[m
+[32m+[m[32m            return version;[m
+[32m+[m[32m        }[m
+ [m
+[31m-        collect.forEach((a,b)-> System.out.print(a+":"+b+",   "));[m
+[32m+[m[32m        public void setVersion(int version) {[m
+[32m+[m[32m            this.version = version;[m
+[32m+[m[32m        }[m
+ [m
+[31m-        Map.Entry<Character, Long> characterLongEntry = collect.entrySet().stream().max(Map.Entry.comparingByValue()).get();[m
+[31m-        System.out.println( "\n1st Max "+  characterLongEntry.getKey()+" = "+ characterLongEntry.getValue());[m
+[31m-        Map.Entry<Character, Long> characterLongEntry1 = collect.entrySet().stream().filter(i -> i.getValue() != characterLongEntry.getValue()).max(Map.Entry.comparingByValue()).get();[m
+[31m-        System.out.println( "2nd Max "+  characterLongEntry1.getKey()+" = "+ characterLongEntry1.getValue());[m
+[32m+[m[32m        public History(int id, int version) {[m
+[32m+[m[32m            this.id = id;[m
+[32m+[m[32m            this.version = version;[m
+[32m+[m[32m        }[m
+ [m
+[32m+[m[32m        private int id;[m
+[32m+[m[32m        private int version;[m
+     }[m
+ }[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/StreamApi.java b/src/main/java/com/jalaramcwa/StreamApi.java[m
+[1mindex 15a4165..cfc004e 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/StreamApi.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/StreamApi.java[m
+[36m@@ -1,7 +1,6 @@[m
+ package com.jalaramcwa;[m
+ [m
+ import java.lang.reflect.Constructor;[m
+[31m-import java.lang.reflect.Field;[m
+ import java.lang.reflect.InvocationTargetException;[m
+ import java.util.*;[m
+ import java.util.concurrent.Callable;[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/citiustech/A.java b/src/main/java/com/jalaramcwa/citiustech/A.java[m
+[1mindex d9ec692..30f8fab 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/citiustech/A.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/citiustech/A.java[m
+[36m@@ -3,7 +3,7 @@[m [mpackage com.jalaramcwa.citiustech;[m
+ import java.io.IOException;[m
+ [m
+ public class A {[m
+[31m-    void m1() throws IOException[m
+[32m+[m[32m    public void m1() throws IOException[m
+     {[m
+         System.out.println("In m1 A");[m
+     }[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/citiustech/B.java b/src/main/java/com/jalaramcwa/citiustech/B.java[m
+[1mindex a8e17ee..aa43e40 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/citiustech/B.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/citiustech/B.java[m
+[36m@@ -3,8 +3,22 @@[m [mpackage com.jalaramcwa.citiustech;[m
+ import java.io.IOException;[m
+ [m
+ public class B extends A{[m
+[31m-    void m1() throws IOException //when we use Exception it will give compile time error so we need to specify IOException[m
+[32m+[m[32m    public void m1() throws IOException /*[m
+[32m+[m[32m                                        If parent class method throws parent Exception class and subClass override parent[m
+[32m+[m[32m                                        class method with throw same class name exception or subClass exception then it will work.[m
+[32m+[m[32m                                        else it will give compile time error[m
+[32m+[m[32m                                        */[m
+     {[m
+         System.out.println("In m1 B");[m
+     }[m
+[32m+[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        A a = new A();[m
+[32m+[m[32m        try {[m
+[32m+[m[32m            a.m1();[m
+[32m+[m[32m        }catch (Exception e){[m
+[32m+[m[32m            e.printStackTrace();[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m    }[m
+ }[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/citiustech/C.java b/src/main/java/com/jalaramcwa/citiustech/C.java[m
+[1mindex abaccd8..48eb91e 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/citiustech/C.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/citiustech/C.java[m
+[36m@@ -13,9 +13,23 @@[m [mpublic class C extends P{[m
+ [m
+     public static void main(String[] args) {[m
+ [m
+[31m-        P p = new C();[m
+[31m-        p.m1();[m
+[31m-        p.m1();[m
+[32m+[m[32m        P p = new P();[m
+[32m+[m[32m        p.m1(); //In m1 P[m
+[32m+[m[32m        //p.c2();[m
+ [m
+[32m+[m[32m        P p2 = new C();[m
+[32m+[m[32m        p2.m1(); //In m1 C[m
+[32m+[m
+[32m+[m[32m        C c = new C();[m
+[32m+[m[32m        c.m1(); //In m1 C[m
+[32m+[m[32m        c.c2(); //In c2 C[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    static {[m
+[32m+[m[32m        System.out.println("CCC");[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    {[m
+[32m+[m[32m        System.out.println("))))000((((");[m
+     }[m
+ }[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/citiustech/MainClass.java b/src/main/java/com/jalaramcwa/citiustech/MainClass.java[m
+[1mindex 41e84d4..ba024a1 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/citiustech/MainClass.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/citiustech/MainClass.java[m
+[36m@@ -7,8 +7,8 @@[m [mpublic class MainClass {[m
+     }[m
+ [m
+ [m
+[31m-    /*void method(int[] a)[m
+[32m+[m[32m    /*void method(int[] a) //compile time error[m
+     {[m
+         System.out.println(2);[m
+[31m-    }  */ //compile time error[m
+[32m+[m[32m    }  */[m
+ }[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/citiustech/Test.java b/src/main/java/com/jalaramcwa/citiustech/Test.java[m
+[1mindex 6aab39f..a2f7137 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/citiustech/Test.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/citiustech/Test.java[m
+[36m@@ -11,9 +11,8 @@[m [mpublic class Test {[m
+         //b.m1(); //compile time error[m
+ [m
+ [m
+[31m-        P p = new C();[m
+[31m-        //p.c2(); //compile time error[m
+[31m-[m
+[32m+[m[32m        C p = new C();[m
+[32m+[m[32m        p.c2(); //compile time error[m
+ [m
+         X a = new X();[m
+         a.m1(null);[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/class_not_found_exception/Helper.java b/src/main/java/com/jalaramcwa/class_not_found_exception/Helper.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..025d982[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/class_not_found_exception/Helper.java[m
+[36m@@ -0,0 +1,7 @@[m
+[32m+[m[32mpackage com.jalaramcwa.class_not_found_exception;[m
+[32m+[m
+[32m+[m[32mpublic class Helper {[m
+[32m+[m[32m    public void doSomething() {[m
+[32m+[m[32m        System.out.println("Doing something...");[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/class_not_found_exception/Main.java b/src/main/java/com/jalaramcwa/class_not_found_exception/Main.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ea96fe7[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/class_not_found_exception/Main.java[m
+[36m@@ -0,0 +1,27 @@[m
+[32m+[m[32mpackage com.jalaramcwa.class_not_found_exception;[m
+[32m+[m
+[32m+[m[32mpublic class Main {[m
+[32m+[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m[32m        try {[m
+[32m+[m[32m            Class.forName("com.jalaramcwa.soild.liskov_substitution_principle.Shapes");[m
+[32m+[m[32m        } catch (ClassNotFoundException e) {[m
+[32m+[m[32m            e.printStackTrace();[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        try {[m
+[32m+[m[32m            Helper helper = new Helper();[m
+[32m+[m[32m            helper.doSomething();[m
+[32m+[m[32m        }  catch (NoClassDefFoundError e) {[m
+[32m+[m[32m            e.printStackTrace();[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        Main main = new Main();[m
+[32m+[m[32m        main.infiniteRecursion();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void infiniteRecursion() {[m
+[32m+[m[32m        // This method calls itself recursively without a termination condition[m
+[32m+[m[32m        infiniteRecursion();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/collection/ListOfInterface.java b/src/main/java/com/jalaramcwa/collection/ListOfInterface.java[m
+[1mindex 871b13f..ebc34ec 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/collection/ListOfInterface.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/collection/ListOfInterface.java[m
+[36m@@ -1,6 +1,5 @@[m
+ package com.jalaramcwa.collection;[m
+ [m
+[31m-import java.lang.reflect.Field;[m
+ import java.util.*;[m
+ [m
+ public class ListOfInterface {[m
+[36m@@ -20,6 +19,12 @@[m [mpublic class ListOfInterface {[m
+ [m
+         list.add(5,7);[m
+ [m
+[32m+[m[32m        System.out.println(list);[m
+[32m+[m
+[32m+[m[32m        List<Integer> list1 = Collections.unmodifiableList(list);[m
+[32m+[m[32m        list1.set(2,3);[m
+[32m+[m[32m        System.out.println(list1);[m
+[32m+[m
+         //System.out.println(list);[m
+         //Collections.sort(list);[m
+         //list.sort(Collections.reverseOrder());[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/collision_resolution_techniques/DoubleHashingHashTable.java b/src/main/java/com/jalaramcwa/collision_resolution_techniques/DoubleHashingHashTable.java[m
+[1mindex 4c0002b..7a24a54 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/collision_resolution_techniques/DoubleHashingHashTable.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/collision_resolution_techniques/DoubleHashingHashTable.java[m
+[36m@@ -1,9 +1,9 @@[m
+ package com.jalaramcwa.collision_resolution_techniques;[m
+ [m
+ public class DoubleHashingHashTable {[m
+[31m-    private int size;[m
+[31m-    private String[] table;[m
+[31m-    private boolean[] isOccupied;[m
+[32m+[m[32m    private final int size;[m
+[32m+[m[32m    private final String[] table;[m
+[32m+[m[32m    private final boolean[] isOccupied;[m
+ [m
+     public DoubleHashingHashTable(int size) {[m
+         this.size = size;[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/collision_resolution_techniques/LinearProbingHashTable.java b/src/main/java/com/jalaramcwa/collision_resolution_techniques/LinearProbingHashTable.java[m
+[1mindex 6e97a08..92bb597 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/collision_resolution_techniques/LinearProbingHashTable.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/collision_resolution_techniques/LinearProbingHashTable.java[m
+[36m@@ -1,9 +1,9 @@[m
+ package com.jalaramcwa.collision_resolution_techniques;[m
+ [m
+ public class LinearProbingHashTable {[m
+[31m-    private int size;[m
+[31m-    private String[] table;[m
+[31m-    private boolean[] isOccupied;[m
+[32m+[m[32m    private final int size;[m
+[32m+[m[32m    private final String[] table;[m
+[32m+[m[32m    private final boolean[] isOccupied;[m
+ [m
+     public LinearProbingHashTable(int size) {[m
+         this.size = size;[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/collision_resolution_techniques/QuadraticProbingHashTable.java b/src/main/java/com/jalaramcwa/collision_resolution_techniques/QuadraticProbingHashTable.java[m
+[1mindex b77cc2a..d86e8a8 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/collision_resolution_techniques/QuadraticProbingHashTable.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/collision_resolution_techniques/QuadraticProbingHashTable.java[m
+[36m@@ -1,9 +1,9 @@[m
+ package com.jalaramcwa.collision_resolution_techniques;[m
+ [m
+ public class QuadraticProbingHashTable {[m
+[31m-    private int size;[m
+[31m-    private String[] table;[m
+[31m-    private boolean[] isOccupied;[m
+[32m+[m[32m    private final int size;[m
+[32m+[m[32m    private final String[] table;[m
+[32m+[m[32m    private final boolean[] isOccupied;[m
+ [m
+     public QuadraticProbingHashTable(int size) {[m
+         this.size = size;[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/executer/ExecutorExample.java b/src/main/java/com/jalaramcwa/executer/ExecutorExample.java[m
+[1mindex cc9b543..f73d0ba 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/executer/ExecutorExample.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/executer/ExecutorExample.java[m
+[36m@@ -10,13 +10,10 @@[m [mpublic class ExecutorExample {[m
+     public static void main(String[] args) {[m
+ [m
+         ExecutorService executor = Executors.newSingleThreadExecutor();[m
+[31m-        executor.execute(new Runnable() {[m
+[31m-            @Override[m
+[31m-            public void run() {[m
+[31m-                System.out.println("1Thread : name : "+Thread.currentThread().getName());[m
+[31m-                for (int i = 0 ; i < 10000; i++){[m
+[31m-                    counter++;[m
+[31m-                }[m
+[32m+[m[32m        executor.execute(() -> {[m
+[32m+[m[32m            System.out.println("1Thread : name : "+Thread.currentThread().getName());[m
+[32m+[m[32m            for (int i = 0 ; i < 10000; i++){[m
+[32m+[m[32m                counter++;[m
+             }[m
+         });[m
+ [m
+[36m@@ -29,8 +26,6 @@[m [mpublic class ExecutorExample {[m
+         System.out.println("3Thread : counter : "+counter);[m
+         System.out.println("4Thread : name : "+Thread.currentThread().getName());[m
+ [m
+[31m-[m
+[31m-[m
+         if(future.isDone()){[m
+             System.out.println("5Thread : counter : "+counter);[m
+         }[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/soild/dependency_inversion_principle/UserRepository.java b/src/main/java/com/jalaramcwa/soild/dependency_inversion_principle/UserRepository.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..da6e511[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/soild/dependency_inversion_principle/UserRepository.java[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32mpackage com.jalaramcwa.soild.dependency_inversion_principle;[m
+[32m+[m
+[32m+[m[32mpublic interface UserRepository {[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/soild/dependency_inversion_principle/UserService.java b/src/main/java/com/jalaramcwa/soild/dependency_inversion_principle/UserService.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8ce4dbc[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/soild/dependency_inversion_principle/UserService.java[m
+[36m@@ -0,0 +1,9 @@[m
+[32m+[m[32mpackage com.jalaramcwa.soild.dependency_inversion_principle;[m
+[32m+[m
+[32m+[m[32mpublic class UserService {[m
+[32m+[m[32m    private final UserRepository userRepository;[m
+[32m+[m
+[32m+[m[32m    public UserService(UserRepository userRepository) {[m
+[32m+[m[32m        this.userRepository = userRepository;[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/soild/interface_segregation_principle/Eatable.java b/src/main/java/com/jalaramcwa/soild/interface_segregation_principle/Eatable.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..471b39d[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/soild/interface_segregation_principle/Eatable.java[m
+[36m@@ -0,0 +1,5 @@[m
+[32m+[m[32mpackage com.jalaramcwa.soild.interface_segregation_principle;[m
+[32m+[m
+[32m+[m[32mpublic interface Eatable {[m
+[32m+[m[32m    void eat();[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/soild/interface_segregation_principle/Programmer.java b/src/main/java/com/jalaramcwa/soild/interface_segregation_principle/Programmer.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b55a84c[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/soild/interface_segregation_principle/Programmer.java[m
+[36m@@ -0,0 +1,14 @@[m
+[32m+[m[32mpackage com.jalaramcwa.soild.interface_segregation_principle;[m
+[32m+[m
+[32m+[m[32mpublic class Programmer implements Workable, Eatable{[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public void eat() {[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public void work() {[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/soild/interface_segregation_principle/Workable.java b/src/main/java/com/jalaramcwa/soild/interface_segregation_principle/Workable.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5b36369[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/soild/interface_segregation_principle/Workable.java[m
+[36m@@ -0,0 +1,5 @@[m
+[32m+[m[32mpackage com.jalaramcwa.soild.interface_segregation_principle;[m
+[32m+[m
+[32m+[m[32mpublic interface Workable {[m
+[32m+[m[32m    void work();[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/soild/liskov_substitution_principle/Rectangle.java b/src/main/java/com/jalaramcwa/soild/liskov_substitution_principle/Rectangle.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1a5bda8[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/soild/liskov_substitution_principle/Rectangle.java[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m[32mpackage com.jalaramcwa.soild.liskov_substitution_principle;[m
+[32m+[m
+[32m+[m[32mpublic class Rectangle extends Shape{[m
+[32m+[m[32m    public void setWidth(int width) {[m
+[32m+[m[32m        this.width = width;[m
+[32m+[m[32m        this.height = width;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setHeight(int height) {[m
+[32m+[m[32m        this.height = height;[m
+[32m+[m[32m        this.width = height;[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/soild/liskov_substitution_principle/Shape.java b/src/main/java/com/jalaramcwa/soild/liskov_substitution_principle/Shape.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6344448[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/soild/liskov_substitution_principle/Shape.java[m
+[36m@@ -0,0 +1,14 @@[m
+[32m+[m[32mpackage com.jalaramcwa.soild.liskov_substitution_principle;[m
+[32m+[m
+[32m+[m[32mpublic class Shape {[m
+[32m+[m[32m    protected int width;[m
+[32m+[m[32m    protected int height;[m
+[32m+[m
+[32m+[m[32m    public void setWidth(int width) {[m
+[32m+[m[32m        this.width = width;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setHeight(int height) {[m
+[32m+[m[32m        this.height = height;[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/soild/liskov_substitution_principle/Square.java b/src/main/java/com/jalaramcwa/soild/liskov_substitution_principle/Square.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d718b9b[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/soild/liskov_substitution_principle/Square.java[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m[32mpackage com.jalaramcwa.soild.liskov_substitution_principle;[m
+[32m+[m
+[32m+[m[32mpublic class Square extends Shape{[m
+[32m+[m[32m    public void setWidth(int width) {[m
+[32m+[m[32m        this.width = width;[m
+[32m+[m[32m        this.height = width;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setHeight(int height) {[m
+[32m+[m[32m        this.height = height;[m
+[32m+[m[32m        this.width = height;[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/soild/open_close_principle/Rectangle.java b/src/main/java/com/jalaramcwa/soild/open_close_principle/Rectangle.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..11ebd20[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/soild/open_close_principle/Rectangle.java[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32mpackage com.jalaramcwa.soild.open_close_principle;[m
+[32m+[m
+[32m+[m[32mpublic class Rectangle implements Shape {[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public void draw() {[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/soild/open_close_principle/Shape.java b/src/main/java/com/jalaramcwa/soild/open_close_principle/Shape.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8df02fa[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/soild/open_close_principle/Shape.java[m
+[36m@@ -0,0 +1,5 @@[m
+[32m+[m[32mpackage com.jalaramcwa.soild.open_close_principle;[m
+[32m+[m
+[32m+[m[32mpublic interface Shape {[m
+[32m+[m[32m    void draw();[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/soild/single_responsible_principle/EmailService.java b/src/main/java/com/jalaramcwa/soild/single_responsible_principle/EmailService.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5885444[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/soild/single_responsible_principle/EmailService.java[m
+[36m@@ -0,0 +1,7 @@[m
+[32m+[m[32mpackage com.jalaramcwa.soild.single_responsible_principle;[m
+[32m+[m
+[32m+[m[32mpublic class EmailService {[m
+[32m+[m[32m    public void sendEmail() {[m
+[32m+[m[32m        // Code to send email[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/soild/single_responsible_principle/UserService.java b/src/main/java/com/jalaramcwa/soild/single_responsible_principle/UserService.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f720dde[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/com/jalaramcwa/soild/single_responsible_principle/UserService.java[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32mpackage com.jalaramcwa.soild.single_responsible_principle;[m
+[32m+[m
+[32m+[m[32mpublic class UserService {[m
+[32m+[m
+[32m+[m[32m    public void createUser(){[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/tables/Employee.java b/src/main/java/com/jalaramcwa/tables/Employee.java[m
+[1mindex 6e3d0ba..0806aa6 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/tables/Employee.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/tables/Employee.java[m
+[36m@@ -10,7 +10,6 @@[m [mpublic class Employee implements Comparable<Employee>,Cloneable, Serializable {[m
+     int id;[m
+     String name;[m
+     Double salary;[m
+[31m-[m
+     int age;[m
+ [m
+     int[] course;[m
+[1mdiff --git a/src/main/java/com/jalaramcwa/test/PersonClass.java b/src/main/java/com/jalaramcwa/test/PersonClass.java[m
+[1mindex bfdb784..77c9f05 100644[m
+[1m--- a/src/main/java/com/jalaramcwa/test/PersonClass.java[m
+[1m+++ b/src/main/java/com/jalaramcwa/test/PersonClass.java[m
+[36m@@ -7,6 +7,8 @@[m [mpublic class PersonClass {[m
+         this.personImp = personImp;[m
+     }[m
+ [m
+[32m+[m
+[32m+[m
+     public String callApi(){[m
+         return personImp.fetchData();[m
+     }[m
+[1mdiff --git a/src/test/java/ApiTesting.java b/src/test/java/ApiTesting.java[m
+[1mindex e9e3f04..740b0fd 100644[m
+[1m--- a/src/test/java/ApiTesting.java[m
+[1m+++ b/src/test/java/ApiTesting.java[m
+[36m@@ -30,4 +30,6 @@[m [mpublic class ApiTesting {[m
+         assertEquals("Hello",result);[m
+ [m
+     }[m
+[32m+[m
+[32m+[m
+ }[m

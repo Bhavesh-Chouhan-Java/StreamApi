@@ -10,7 +10,6 @@ public class Employee implements Comparable<Employee>,Cloneable, Serializable {
     int id;
     String name;
     Double salary;
-
     int age;
 
     int[] course;

@@ -1,9 +1,9 @@
 package com.jalaramcwa.collision_resolution_techniques;
 
 public class DoubleHashingHashTable {
-    private int size;
-    private String[] table;
-    private boolean[] isOccupied;
+    private final int size;
+    private final String[] table;
+    private final boolean[] isOccupied;
 
     public DoubleHashingHashTable(int size) {
         this.size = size;

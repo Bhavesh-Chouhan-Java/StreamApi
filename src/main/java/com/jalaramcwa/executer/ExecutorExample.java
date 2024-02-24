@@ -10,13 +10,10 @@ public class ExecutorExample {
     public static void main(String[] args) {
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("1Thread : name : "+Thread.currentThread().getName());
-                for (int i = 0 ; i < 10000; i++){
-                    counter++;
-                }
+        executor.execute(() -> {
+            System.out.println("1Thread : name : "+Thread.currentThread().getName());
+            for (int i = 0 ; i < 10000; i++){
+                counter++;
             }
         });
 
@@ -28,8 +25,6 @@ public class ExecutorExample {
         });
         System.out.println("3Thread : counter : "+counter);
         System.out.println("4Thread : name : "+Thread.currentThread().getName());
-
-
 
         if(future.isDone()){
             System.out.println("5Thread : counter : "+counter);
