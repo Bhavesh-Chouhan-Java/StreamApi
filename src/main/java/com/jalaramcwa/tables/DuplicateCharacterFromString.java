@@ -14,12 +14,13 @@ public class DuplicateCharacterFromString {
         Set<Character> set = new HashSet<>();
 
         LinkedHashMap<Character, Long> collect = name.chars()
-                .mapToObj(i -> (char) i).filter(i -> !set.add(i))
+                .mapToObj(i -> (char) i)
+                .filter(i -> !set.add(i))
                 .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
 
         collect.forEach((a,b)->System.out.println(a +" - "+b));
 
-        Map map = new HashMap();
+
 
     }
 }
