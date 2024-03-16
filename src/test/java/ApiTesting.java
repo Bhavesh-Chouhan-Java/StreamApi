@@ -1,6 +1,6 @@
 
-import com.jalaramcwa.test.PersonClass;
-import com.jalaramcwa.test.PersonImp;
+import com.jalaramcwa.java.test.PersonClass;
+import com.jalaramcwa.java.test.PersonImp;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
