@@ -26,13 +26,6 @@ public class AnagramProgram {
         }else{
            System.out.println(false);
         }
-
-        /*for(char c : str.toCharArray()){
-            int s = getCharacter(giv,c, str);
-            if(s == str.length()){
-                System.out.println(s);
-            }
-        }*/
     }
 
 

@@ -23,7 +23,7 @@ public class Program2 {
                 b[i + 1] = a[i];
             }
         }
-        if(3 == s){
+        if(5 == s){
             System.out.println(Arrays.toString(b));
         }else{
             s =s+1;

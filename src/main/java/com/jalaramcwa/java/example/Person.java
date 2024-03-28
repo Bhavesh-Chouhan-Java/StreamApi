@@ -40,7 +40,7 @@ public class Person {
 
 
 
-    static class Builder{
+    public static class Builder{
         private int id;
         private String name;
         private double salary;

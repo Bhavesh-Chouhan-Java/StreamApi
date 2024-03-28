@@ -1,8 +1,6 @@
 package com.jalaramcwa.java.example.clasess;
 
 class C {
-
-
     private int x = 20;
     public void print(){
         System.out.println("Print C");

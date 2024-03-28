@@ -21,7 +21,7 @@ public class ListOfInterface {
 
         System.out.println(list);
 
-        List<Integer> list1 = Collections.unmodifiableList(list);
+        List<Integer> list1 = new ArrayList<>(Collections.unmodifiableList(list));
         list1.set(2,3);
         System.out.println(list1);
 

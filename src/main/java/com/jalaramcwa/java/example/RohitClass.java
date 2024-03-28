@@ -50,16 +50,13 @@ public class RohitClass implements Cloneable, Callable<RohitClass> {
         RohitClass rohitClass = new RohitClass();
         rohitClass.setId("1");
         rohitClass.setName("Bhavesh");
-        RohitClass rohit2 = new RohitClass();
-        rohit2.setId("1");
-        rohit2.setName("BhaveshChouhan");
+        RohitClass rohitClass2 = new RohitClass();
+        rohitClass2.setId("1");
+        rohitClass2.setName("BhaveshChouhan");
         RohitClass rohitClass3 = (RohitClass) rohitClass.clone();
-
 
         RohitClass rohitClass4 = rohitClass.call();
         System.out.println(rohitClass.equals(rohitClass4));
-
-
 
         List<Number> numberList = new ArrayList<>();
         numberList.add(1.00f);
@@ -68,7 +65,6 @@ public class RohitClass implements Cloneable, Callable<RohitClass> {
         myStaticMethod("Bhavesh");
         myStaticMethod(100);
         myStaticMethod(Arrays.asList("1","2"));
-
 
     }
 

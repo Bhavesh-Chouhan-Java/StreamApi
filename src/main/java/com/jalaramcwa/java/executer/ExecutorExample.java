@@ -6,7 +6,7 @@ import java.util.concurrent.Future;
 
 public class ExecutorExample {
 
-    static int counter;
+    public static int counter;
     public static void main(String[] args) {
 
         ExecutorService executor = Executors.newSingleThreadExecutor();

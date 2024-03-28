@@ -71,7 +71,7 @@ public class FutureClass {
                 }catch (InterruptedException e){
                     System.out.println(e.getMessage());
                 }
-                return "Hello CompletableFuture!";
+                return "Hello Completable Future!";
             }
         };
 

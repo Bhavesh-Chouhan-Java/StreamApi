@@ -2,8 +2,8 @@ package com.jalaramcwa.java.example;
 
 public class PatternProgram {
     public static void main(String[] args) {
-        /*
 
+        /*
 
          *
          **
@@ -12,7 +12,6 @@ public class PatternProgram {
 
          *
          * */
-
 
 
         for(int i = 0 ; i < 4 ; i++){

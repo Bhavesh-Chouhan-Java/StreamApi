@@ -6,24 +6,19 @@ public class RaceCondition {
 
     public static void main(String[] args) {
 
-        Thread thread1 = new Thread(){
-            @Override
-            public void run() {
-                System.out.println(Thread.currentThread().getName());
-                for (int i = 0 ; i < 10000; i++){
-                    counter++;
-                }
+        Thread thread1 = new Thread(() -> {
+            System.out.println(Thread.currentThread().getName());
+            for (int i = 0 ; i < 10000; i++){
+                counter++;
             }
-        };
+        });
 
-        Thread thread2 = new Thread(){
-            @Override
-            public void run() {
-                for (int i = 0 ; i < 10000; i++){
-                    counter++;
-                }
+        Thread thread2 = new Thread(() -> {
+            for (int i = 0 ; i < 10000; i++){
+                counter++;
             }
-        };
+        });
+
         System.out.println("First "+Thread.currentThread().getName());
         //thread1.setDaemon(true);
 

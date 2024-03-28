@@ -46,7 +46,6 @@ public class DoubleHashingHashTable {
         hashTable.insert("grapes", "purple");
         hashTable.insert("orange", "orange");
         hashTable.insert("apple", "green"); // Collision for "apple"
-
         hashTable.display();
     }
 }

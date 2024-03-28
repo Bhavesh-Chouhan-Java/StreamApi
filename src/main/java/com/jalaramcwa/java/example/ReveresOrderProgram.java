@@ -17,8 +17,6 @@ public class ReveresOrderProgram {
             System.out.println(revere);
         }
         System.out.println(revere);
-
-
     }
 
     private static boolean recurse(char c,String str){

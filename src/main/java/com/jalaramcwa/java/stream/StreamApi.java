@@ -101,6 +101,8 @@ public class StreamApi {
             }
         };
 
+        Arrays.asList("","");
+        List.of("","");
 
         String[] strings = {"papl","apple", "banana", "orange", "grape", "kiwia", "melona","apple","apple"};
         List<String> list = List.of(strings);
@@ -269,6 +271,8 @@ public class StreamApi {
         //13. findFirst()   This is a short-circuiting terminal operation.
         //14. count()
         //15. toList()
+
+        Object o = new Object();
 
         Map<String, Integer> budget = new HashMap<>();
         budget.put("clothes", 120);

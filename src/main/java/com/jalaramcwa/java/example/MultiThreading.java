@@ -1,9 +1,9 @@
 package com.jalaramcwa.java.example;
 
 public class MultiThreading implements Runnable {
-    private int max;
-    private boolean isEven;
-    private static Object lock = new Object();
+    private final int max;
+    private final boolean isEven;
+    private static final Object lock = new Object();
     private static int number = 1;
 
     public MultiThreading(int max, boolean isEven) {

@@ -1,7 +1,6 @@
 package com.jalaramcwa.java.example;
 
 public final class BuilderClass {
-
     private final int id;
     private final String name;
     private final String address;
@@ -31,24 +30,15 @@ public final class BuilderClass {
     }
 
     public static class Builder{
-
-        private final int id;
-        private final String name;
-        private final String address;
-
-        public Builder(int id, String name, String address) {
-            this.id = id;
-            this.name = name;
-            this.address = address;
-        }
+        private int id;
+        private String name;
+        private String address;
+        private Builder() {}
 
         public BuilderClass build(){
             return new BuilderClass(this);
         }
 
-        public BuilderClass create(){
-            return new BuilderClass(id,name,address);
-        }
     }
 
 }

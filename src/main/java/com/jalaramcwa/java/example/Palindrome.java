@@ -12,5 +12,14 @@ public class Palindrome {
         }else{
             System.out.println("Not Palindrome");
         }
+        StringBuilder sb = new StringBuilder();
+        for(int i = str.length()-1 ; i >= 0 ; i--){
+            sb.append(str.charAt(i));
+        }
+        if(str.contentEquals(sb)){
+            System.out.println("Palindrome");
+        }else{
+            System.out.println("Not Palindrome");
+        }
     }
 }

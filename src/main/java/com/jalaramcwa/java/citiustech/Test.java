@@ -4,6 +4,7 @@ import com.jalaramcwa.java.tables.Employee;
 
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Test {
     public static void main(String[] args)  {
@@ -27,6 +28,13 @@ public class Test {
         employees.add(new Employee(124,"Pooja",12000.00));
         employees.add(new Employee(125,"Grisha",11000.00));
         employees.add(new Employee(126,"Laisha",18000.00));
+
+
+        employees.stream().collect(Collectors.toMap(Employee::getName,e->e)).forEach((aa,bb)-> System.out.println(aa+"  "+bb.toString()));
+        Employee employee1 = employees.stream().max(Comparator.comparing(Employee::getSalary)).get();
+        System.out.println("Employee : "+employee1);
+        employees.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).forEach(System.out::println);
+
 
         Set<Employee> set = new HashSet<>();
         Predicate<Employee> predicate1 = e -> !set.add(e);
